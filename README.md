@@ -12,9 +12,5 @@ npm init -y
 npm i express
 ```
 
-### Type = Module
-```bash
-"type": "module",
-```
 
 YT Project: https://www.youtube.com/watch?v=JmJ1WUoUIK4&t=618s
