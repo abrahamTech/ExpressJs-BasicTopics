@@ -12,5 +12,17 @@ npm init -y
 npm i express
 ```
 
+## HTTP Methods
+* GET (Send a Request)
+* POST (Send a Request and Info)
+* PUT (Update all the data)
+* DELETE (Delete Info)
+* PATCH (Update only part of the data)
 
-YT Project: https://www.youtube.com/watch?v=JmJ1WUoUIK4&t=618s
+## Install "Thunder Client" Extension
+Install Thunder Client extension for do Client request to our backend page.
+
+
+#### YT Project: 
+
+[Express Framework de Nodejs, Curso para principiantes (Javascript en el backend)](https://www.youtube.com/watch?v=JmJ1WUoUIK4&t=618s)
