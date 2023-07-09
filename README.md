@@ -24,7 +24,7 @@ Install Thunder Client extension for do Client request to our backend page.
 
 ## Info to SEND
 
-## sendFile()
+### sendFile()
 You can send an image, audio, video, PDF, txt etc., but you you need to indicate the root path with the `__dirname` property
 
 Ex:
@@ -36,7 +36,7 @@ app.get("/myfile", (req, res) => {
 });
 ```
 
-## json()
+### json()
 You can send a json file.
 Ex:
 ```bash
@@ -53,13 +53,51 @@ app.get("/user", (req, res) => {
 });
 ```
 
-## sendStatus()
+### sendStatus()
 Only send a status number but no content, so it stays on the same page but sends a status code.
 ```bash
 app.get("/isalive", (req, res) => {
     res.sendStatus(204)
 });
 ```
+
+## Request & Response Structure
+
+* Endpoint
+Route Ex: "/about"
+
+* Header
+Body type Ex: "json"
+Status code (Only in Response Object) Ex: "200"
+
+* Body
+Data Ex: "{ "name": "Abraham", "age": 35}
+
+
+## Methods for Process Client Applications
+
+### text()
+The `text()` method is so that Express can process text sent to it by client applications.
+```bash
+app.use(express.text());
+```
+
+### json()
+The `json()` method is so that Express can process json files sent to it by client applications.
+```bash
+app.use(express.json());
+```
+
+### urlencoded()
+The `urlencoded()` method is so that Express can process the data that comes from a **Form** by client applications.
+```bash
+app.use(express.urlencoded(extended: false));
+```
+Notes: 
+1.- `extended: false` is to specify that it is a fairly simple URL that doesn't need to interpret any complicated data (it's only text data).
+2.- The received data converts it to a **json file**
+3.- In Thunder client Extension you need to select in `Body` section the option `Form-encode`, NOT "Form".
+
 
 #### YT Project: 
 
