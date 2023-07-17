@@ -99,6 +99,35 @@ Notes:
 3.- In Thunder client Extension you need to select in `Body` section the option `Form-encode`, NOT "Form".
 
 
+## Queries (?)
+
+Extra information that the browser can send to the backend to use it
+Ex: 
+```bash
+app.get("/users/:username", (req, res) => {})
+http://localhost:3000/users/hello?name=Peter
+```
+So you will receive `{ name: "Peter" }`
+
+### 2 or more Variables (&)
+With **`&`** you can receive more than one variable
+Ex:
+```bash
+app.get("/users", (req, res) => {})
+http://localhost:3000/users?name=Peter&age=40
+```
+So you will receive `{ name: "Peter", age: "40" }`
+
+### 1 Variable with 2 or more Values
+If you write the same variable 2 times or mores, all the values will save in an array
+
+```bash
+app.get("/users", (req, res) => {})
+http://localhost:3000/users?name=Peter&name=Steve
+```
+So you will receive `{ name: [ "Peter", "Steve" ] }`
+
+
 #### YT Project: 
 
 [Express Framework de Nodejs, Curso para principiantes (Javascript en el backend)](https://www.youtube.com/watch?v=JmJ1WUoUIK4&t=618s)
