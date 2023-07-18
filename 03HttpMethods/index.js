@@ -25,6 +25,10 @@ app.patch("/products", (req, res) => {
     res.send("UPDATING one characteristic of the Product");
 });
 
+app.all("/info", (req, res) => {
+    res.send("Server Info")
+});
+
 app.listen(3000, () => {
     console.log(`Server listen on port ${3000}`);
 })

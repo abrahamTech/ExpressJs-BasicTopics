@@ -18,6 +18,7 @@ npm i express
 * PUT (Update all the data)
 * DELETE (Delete Info)
 * PATCH (Update only part of the data)
+* ALL (URL that can work with all the methods: GET, POST, PUT, DELETE, PATCH)
 
 ## Install "Thunder Client" Extension
 Install Thunder Client extension for do Client request to our backend page.
