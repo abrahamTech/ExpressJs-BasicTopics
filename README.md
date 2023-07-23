@@ -129,6 +129,50 @@ http://localhost:3000/users?name=Peter&name=Steve
 So you will receive `{ name: [ "Peter", "Steve" ] }`
 
 
+## Middlewares
+Before going to the routes, they will all go through this Middleware.
+Ex: 
+```bash
+app.use((req, res, next) => {
+    
+    console.log("Middlewares")
+    console.log(`Route: ${req.url} Method: ${req.method}`)
+
+    //Method to pass to the routes
+    next()
+});
+```
+
+If we put these lines of code before the routes (The order does matter)
+
+Ex:
+```bash
+//This line won't go through the middleware
+app.get("/profile", (req, res) => {...});
+
+app.use((req, res, next) => {...} );
+
+// This line will go through the middleware
+app.get("/profile", (req, res) => {...});
+```
+
+### Morgan Middleware
+Install Morgan middleware 
+
+```bash
+npm i morgan
+```
+
+It will work as a function in the `use` method and it will send some info from the request by console. You can write inside () the format that you want to show this messages by console ("tiny", "short", "dev").
+
+```bash
+app.use(morgan())
+
+app.use(morgan("dev"))
+```
+
+Here you can see (Morgan Docuementation)[https://www.npmjs.com/package/morgan]
+
 #### YT Project: 
 
 [Express Framework de Nodejs, Curso para principiantes (Javascript en el backend)](https://www.youtube.com/watch?v=JmJ1WUoUIK4&t=618s)
