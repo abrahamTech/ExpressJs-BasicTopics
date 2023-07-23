@@ -173,6 +173,18 @@ app.use(morgan("dev"))
 
 Here you can see (Morgan Docuementation)[https://www.npmjs.com/package/morgan]
 
+
+# REST API CRUD
+
+### Routes
+ * GET      /products
+ * POST     /products
+ * GET      /products/:id
+ * PUT      /products/:id
+ * DELETE   /products/:id
+
+ All these routes have recommendation for create them that comes from **REST** (Respresentation State Transfer) document.
+
 #### YT Project: 
 
 [Express Framework de Nodejs, Curso para principiantes (Javascript en el backend)](https://www.youtube.com/watch?v=JmJ1WUoUIK4&t=618s)
