@@ -19,3 +19,14 @@ Create Script in package JSON file for run the project
 ```bash
 "dev": "nodemon server.js"
 ```
+
+4.- Run the Proyect
+Enter to the folder:
+```bash
+cd 11ExpressRestAPICrud
+```
+
+Enter the command
+```bash
+npm run dev
+```

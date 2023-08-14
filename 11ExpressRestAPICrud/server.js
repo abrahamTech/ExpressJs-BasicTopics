@@ -3,15 +3,35 @@ const morgan = require("morgan");
 
 const app = express();
 
+const products = [
+    {
+        id: 1,
+        name: "Laptop",
+        price: 3000
+    }
+];
+
 app.use(morgan("dev"));
-// app.use(morgan("short"));
-// app.use(morgan("tiny"));
+
+//Middleware for read the JSON data from POST Request
+app.use(express.json())
+
+
 
 app.get("/products", (req, res) => {
-    res.send("Getting Products");
+    res.json(products);
 });
 
 app.post("/products", (req, res) => {
+    //ID is the length of products array plus 1
+    const newProductId = products.length + 1;
+    //Copy of all the elements in the request body and include the new ID
+    const newProduct = {id: newProductId, ...req.body}
+    console.log(newProduct); 
+
+    // Add the product in the request body to the array products
+    products.push(newProduct);
+
     res.send("Creating Products");
 });
 
