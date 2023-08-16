@@ -36,8 +36,30 @@ app.post("/products", (req, res) => {
     res.send(newProduct);
 });
 
-app.put("/products", (req, res) => {
-    res.send("Updating Products");
+app.put("/products/:id", (req, res) => {
+
+    const newData = req.body;
+
+    //Check if the product exist
+    const productFound = products.find(
+        (product) => product.id === parseInt(req.params.id)
+    );
+
+    if(!productFound){
+        return res.status(404).json({
+            message: "Product not found",
+        })
+    }
+
+    //If I pass one of the values ​​that the product already has, it will be replaced (updated) by the one in the newData variable
+    //If the ids do not match, pass the product as it is. (But we had already validated that in the previous if and filter method)
+    //JSON sended to update the product {"name": "Mouse","price": 200}
+    products = products.map(p => p.id === parseInt(req.params.id) ? {...p, ...newData} : p);
+    console.log(products);
+
+    res.json({
+        message: "Product updated successfully"
+    });
 });
 
 app.delete("/products/:id", (req, res) => {
