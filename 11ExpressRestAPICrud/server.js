@@ -3,7 +3,7 @@ const morgan = require("morgan");
 
 const app = express();
 
-const products = [
+let products = [
     {
         id: 1,
         name: "Laptop",
@@ -40,8 +40,23 @@ app.put("/products", (req, res) => {
     res.send("Updating Products");
 });
 
-app.delete("/products", (req, res) => {
-    res.send("Deleting Products");
+app.delete("/products/:id", (req, res) => {
+    const productFound = products.find(
+        (product) => product.id === parseInt(req.params.id)
+    );
+
+    if(!productFound){
+        return res.status(404).json({
+            message: "Product not found",
+        })
+    }
+
+    //The products array without the product with the ID from the URL
+    products = products.filter(p => p.id !== parseInt(req.params.id));
+    console.log(products);
+
+    // To indicate that everything went well and that nothing will be returned to the client
+    res.sendStatus(204);
 });
 
 app.get("/products/:id", (req, res) => {
