@@ -3,6 +3,15 @@ const morgan = require("morgan");
 
 const app = express();
 
+//SETTINGS (First)
+//is like a variable("variableName", "Value")
+app.set("appName", "Express Course");
+//To get the Variable -> ${app.get("appName")}
+
+app.set("port", 3000);
+app.set("case sensitive routing", true);
+
+
 let products = [
     {
         id: 1,
@@ -11,17 +20,22 @@ let products = [
     }
 ];
 
+//MiDDLEWARES (Second)
 app.use(morgan("dev"));
-
 //Middleware for read the JSON data from POST Request
 app.use(express.json())
 
-//SETTINGS 
-//is like a variable("variableName", "Value")
-app.set("appName", "Express Course");
-//To get the Variable -> ${app.get("appName")}
 
-app.set("port", 3000);
+//ROUTES
+
+//Route for apply the case sesitive 
+app.get("/UserName", (req, res) => {
+    //OK Route: /UserName
+    //NO Route: /userName
+    //NO Route: /Username
+    //NO Route: /username
+    res.send("UserName route");
+});
 
 
 app.get("/products", (req, res) => {
