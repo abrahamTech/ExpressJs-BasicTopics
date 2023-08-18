@@ -16,6 +16,12 @@ app.use(morgan("dev"));
 //Middleware for read the JSON data from POST Request
 app.use(express.json())
 
+//SETTINGS 
+//is like a variable("variableName", "Value")
+app.set("appName", "Express Course");
+//To get the Variable -> ${app.get("appName")}
+
+app.set("port", 3000);
 
 
 app.get("/products", (req, res) => {
@@ -111,6 +117,6 @@ app.get("/products/:id", (req, res) => {
 });
 
 
-app.listen(3000, () => {
-    console.log(`Server listening on port ${3000}`);
+app.listen(app.get("port"), () => {
+    console.log(`Server ${app.get("appName")} listening on port ${app.get("port")}`);
 });
