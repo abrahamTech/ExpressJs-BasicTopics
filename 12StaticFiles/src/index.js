@@ -1,5 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
+//Concatenate directories
+const path = require("path");
 
 const app = express();
 
@@ -23,10 +25,13 @@ app.get("/note.txt", (req, res) => {
 //app.use(express.static("./public"));
 //You can acces to: http://localhost:3000/note.txt
 
+//Absolute Path
+console.log(__dirname);
+
 //You can access to all in "public" folder but you need first to write public in the path
-app.use("/public", express.static("./public"));
+app.use("/public", express.static(path.join(__dirname, "public")));
 //You can acces to: http://localhost:3000/public/note.txt
-app.use("/uploads", express.static("./uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 app.listen(app.get("port"), ()=>{
