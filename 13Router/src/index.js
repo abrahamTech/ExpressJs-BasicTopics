@@ -15,9 +15,15 @@ app.set("port", 3000);
 app.use(express.json());
 app.use(morgan("dev"));
 
+//Router Node Module
+app.use(HomeRoutes);
+app.use(UserRoutes);
 
+/*
+//Router with JS Functions
 HomeRoutes(app);
 UserRoutes(app);
+*/
 
 
 app.use("/public", express.static(path.join(__dirname, "public")));
