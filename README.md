@@ -171,7 +171,7 @@ app.use(morgan())
 app.use(morgan("dev"))
 ```
 
-Here you can see (Morgan Docuementation)[https://www.npmjs.com/package/morgan]
+Here you can see [Morgan Docuementation](https://www.npmjs.com/package/morgan)
 
 
 # REST API CRUD
@@ -184,6 +184,22 @@ Here you can see (Morgan Docuementation)[https://www.npmjs.com/package/morgan]
  * DELETE   /products/:id
 
  All these routes have recommendation for create them that comes from **REST** (Respresentation State Transfer) document.
+
+
+## NPM Modules:
+
+### EJS
+Embedded JavaScript templates
+
+Install:
+`npm i ejs`
+
+Import Module:
+```bash
+const ejs = require("ejs");
+```
+
+[Info Link](https://www.npmjs.com/package/ejs)
 
 #### YT Project: 
 

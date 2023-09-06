@@ -25,7 +25,7 @@ router.all("/about", (req, res) => {
     res.send("About Page");
 });
 
-router.get("./dashboard", (req, res)=> {
+router.get("/dashboard", (req, res)=> {
     res.send("Dashboard Page");
 });
 
