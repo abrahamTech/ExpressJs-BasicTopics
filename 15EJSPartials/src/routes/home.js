@@ -2,15 +2,20 @@
 const express = require("express");
 const router = express.Router();
 
-router.all("/about", (req, res) => {
-    const message = "Message: Created form Express"
-
+router.get("/", (req, res) => {
+    const message = "Message: Home Page"
     //EJS file in "views" folder
-    res.render("index", {title: message})
+    res.render("index", {title: message});
+})
+
+router.all("/about", (req, res) => {
+    //EJS file in "views" folder
+    res.render("about");
 });
 
 router.get("/dashboard", (req, res) => {
-    res.send("Dashboard Page")
+    //EJS file in "views" folder
+    res.render("dashboard");
 });
 
 module.exports = router;
